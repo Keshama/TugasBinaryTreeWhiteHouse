@@ -20,6 +20,7 @@ struct Node {
 
 adrNode newNode(string name, string role);
 adrNode buildWhiteHouseTree();
+void insertChild(adrNode root, string parentName, string name, string role, char position);
 void printPreOrder(adrNode root);
 void printInOrder(adrNode root);
 void printPostOrder(adrNode root);
