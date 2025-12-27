@@ -1,0 +1,11 @@
+# Abaikan folder hasil compile
+bin/
+obj/
+
+# Abaikan file executable
+*.exe
+*.o
+
+# Abaikan file layout/dependensi Code::Blocks (opsional, tapi disarankan)
+*.layout
+*.depend
