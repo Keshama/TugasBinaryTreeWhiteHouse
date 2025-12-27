@@ -1,5 +1,5 @@
 #include <iostream>
-#include "WhiteHouse.h".h"
+#include "WhiteHouse.h"
 
 using namespace std;
 
