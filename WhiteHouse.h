@@ -1,34 +1,29 @@
 #ifndef WHITEHOUSE_H
 #define WHITEHOUSE_H
 
-#include <string>
 #include <iostream>
-
-#define Nil NULL
-
+#include <string>
 using namespace std;
 
-typedef Pejabat infotype;
-typedef struct Node *adrNode;
-
-struct Pejabat {
-    string jabatan;
-    string nama;
+struct infotype {
+    string name;
+    string role;
 };
+
+typedef struct Node* adrNode;
 
 struct Node {
     infotype info;
-    adrNode left;   //** Menunjuk ke Bawahan (Anak)
-    adrNode right;  //** Menunjuk ke Rekan Kerja (Saudara)
+    adrNode left;
+    adrNode right;
 };
 
-void createTree(adrNode &root);
-adrNode createNode(infotype x);
-void insertChild(adrNode &parent, adrNode p);
-void displayTree(adrNode root);
-infotype newInfo(string jabatan, string nama);
+adrNode newNode(string name, string role);
+adrNode buildWhiteHouseTree();
 void printPreOrder(adrNode root);
 void printInOrder(adrNode root);
 void printPostOrder(adrNode root);
+void printTreeStructure(adrNode root, int space = 0, int height = 10);
+adrNode searchNode(adrNode root, string targetName);
 
 #endif
