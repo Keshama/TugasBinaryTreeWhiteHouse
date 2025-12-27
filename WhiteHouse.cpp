@@ -1,4 +1,4 @@
-#include "whitehouse.h"
+#include "WhiteHouse.h"
 
 adrNode newNode(string name, string role) {
     adrNode p = new Node;
