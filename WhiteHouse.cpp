@@ -96,18 +96,45 @@ void printPostOrder(adrNode root) {
     cout << root->info.name << " -> ";
 }
 
-void printTreeStructure(adrNode root, int space, int height) {
+void printRecursive(adrNode root, string indent, bool isLast) {
+    if (root == NULL) return;
+    cout << indent;
+    if (isLast) {
+        cout << "`-- ";
+        indent += "    ";
+    } else {
+        cout << "|-- ";
+        indent += "|   ";
+    }
+    cout << root->info.name << " (" << root->info.role << ")" << endl;
+
+    if (root->left != NULL && root->right != NULL) {
+        printRecursive(root->left, indent, false);
+        printRecursive(root->right, indent, true);
+    }
+    else if (root->left != NULL) {
+        printRecursive(root->left, indent, true);
+    }
+    else if (root->right != NULL) {
+        printRecursive(root->right, indent, true);
+    }
+}
+
+void printTreeStructure(adrNode root) {
     if (root == NULL) return;
 
-    space += height;
+    cout << root->info.name << " (" << root->info.role << ")" << endl;
 
-    printTreeStructure(root->right, space);
-    cout << endl;
-    for (int i = height; i < space; i++) cout << " ";
-    cout << "[" << root->info.name << "]\n";
-    for (int i = height; i < space; i++) cout << " ";
-    cout << "(" << root->info.role << ")\n";
-    printTreeStructure(root->left, space);
+    if (root->left != NULL && root->right != NULL) {
+        printRecursive(root->left, "", false);
+        printRecursive(root->right, "", true);
+    }
+    else if (root->left != NULL) {
+        printRecursive(root->left, "", true);
+    }
+    else if (root->right != NULL) {
+        printRecursive(root->right, "", true);
+    }
 }
 
 adrNode searchNode(adrNode root, string targetName) {

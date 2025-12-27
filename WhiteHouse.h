@@ -24,7 +24,8 @@ void insertChild(adrNode root, string parentName, string name, string role, char
 void printPreOrder(adrNode root);
 void printInOrder(adrNode root);
 void printPostOrder(adrNode root);
-void printTreeStructure(adrNode root, int space = 0, int height = 10);
+void printRecursive(adrNode root, string indent, bool isLast);
+void printTreeStructure(adrNode root);
 adrNode searchNode(adrNode root, string targetName);
 
 #endif
