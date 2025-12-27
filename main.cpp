@@ -4,16 +4,11 @@
 using namespace std;
 
 int main(){
-    adrNode root;
-    adrNode p, cos, press;
-    infotype data;
+    Node* root = buildWhiteHouseTree();
+    int choice;
+    string searchName;
+    Node* found = NULL;
 
-    createTree(root);
+   printTreeStructure(root);
 
-    data = newInfo("PRESIDENT", "Donald Trump");
-    root = createNode(data);
-
-    data = newInfo("Vice President", "JD Vance");
-    p = createNode(data);
-    insertChild(root, p);
 };

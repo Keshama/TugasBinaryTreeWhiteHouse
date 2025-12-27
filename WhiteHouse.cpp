@@ -46,6 +46,34 @@ adrNode buildWhiteHouseTree() {
     return root;
 }
 
+void insertChild(adrNode root, string parentName, string name, string role, char position) {
+    adrNode parent = searchNode(root, parentName);
+
+    if (parent == NULL) {
+        cout << "\n[ERROR] Parent dengan nama \"" << parentName << "\" tidak ditemukan!\n";
+        return;
+    }
+
+    if (position == 'L' || position == 'l') {
+        if (parent->left == NULL) {
+            parent->left = newNode(name, role);
+            cout << "\n[SUKSES] " << name << " berhasil ditambahkan sebagai anak KIRI dari " << parent->info.name << ".\n";
+        } else {
+            cout << "\n[GAGAL] Posisi KIRI dari " << parent->info.name << " sudah terisi oleh " << parent->left->info.name << "!\n";
+        }
+    }
+    else if (position == 'R' || position == 'r') {
+        if (parent->right == NULL) {
+            parent->right = newNode(name, role);
+            cout << "\n[SUKSES] " << name << " berhasil ditambahkan sebagai anak KANAN dari " << parent->info.name << ".\n";
+        } else {
+            cout << "\n[GAGAL] Posisi KANAN dari " << parent->info.name << " sudah terisi oleh " << parent->right->info.name << "!\n";
+        }
+    }
+    else {
+        cout << "\n[ERROR] Posisi salah! Masukkan 'L' untuk Kiri atau 'R' untuk Kanan.\n";
+    }
+}
 
 void printPreOrder(adrNode root) {
     if (root == NULL) return;
